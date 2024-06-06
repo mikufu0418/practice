@@ -1,0 +1,19 @@
+<h2>投稿詳細</h2>
+<table>
+    <thead>
+        <tr>
+            <th>タイトル</th>
+            <th>投稿内容</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><p><%= @post.content %></p></td>
+            <td><p><%= @post.title %></p></td>
+        </tr>
+    </tbody>
+</table>
+
+<%= link_to "一覧へ", posts_path %>
+<%= link_to "編集へ", edit_post_path %>
+<td><%= button_to '削除', post_path, method: :delete, data: {turbo_confirm: "本当に削除しますか？"} %></td>

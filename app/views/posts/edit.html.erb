@@ -1,0 +1,31 @@
+<h1>編集</h1>
+
+<%= form_with(model: @post, url: post_path(@post), local: true) do |form| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title, "タイトル" %>
+    <%= form.text_field :title %>
+    <%= form.label :content, "投稿" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "編集する" %>
+    <%= form.submit "削除する" %>
+    <%= form.submit "登録する" %>
+  </div>
+  </div>
+<% end %>
+
+<%= link_to '一覧に戻る', posts_path %>
